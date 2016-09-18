@@ -6,6 +6,7 @@ import java.awt.event.*;
 
 public class Homework extends JFrame{
 	
+	//remember declared once and not again in destructor
 	JButton button1;
 	JTextField textField1;
 	JTextArea textArea1;
@@ -57,7 +58,7 @@ public class Homework extends JFrame{
 		thePanel.add(label1);
 		
 		//creation of a button
-		JButton button1 = new JButton("Send");
+		button1 = new JButton("Send");
 		
 		//calling on a private class listening for the button
 		ListenForButton lForButton = new ListenForButton();
@@ -72,7 +73,7 @@ public class Homework extends JFrame{
 		thePanel.add(button1);
 		
 		//creates new text field
-		JTextField textField1 = new JTextField("", 15);
+		textField1 = new JTextField("", 15);
 		
 		//calling on private class listening for key presses
 		ListenForKeys lForKeys = new ListenForKeys();
@@ -87,7 +88,7 @@ public class Homework extends JFrame{
 		thePanel.add(textField1);
 		
 		//creates text area with sizing
-		JTextArea textArea1 = new JTextArea(15, 20);
+		textArea1 = new JTextArea(15, 20);
 		
 		//set text area default text
 		textArea1.setText("Tracking events\n");
