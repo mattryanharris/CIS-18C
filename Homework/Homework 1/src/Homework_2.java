@@ -111,7 +111,120 @@ public class Homework_2 extends JFrame {
 		this.add(thePanel);
 		this.setVisible(true);
 		
-		textField1.requestFocus();	
+		textField1.requestFocus();
+		
+	
 		
 	}
+	
+	private class ListenForButton implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource() == button1) {
+				try {
+					number1 = Double.parseDouble(textField1.getText());
+					number2 = Double.parseDouble(textField2.getText());
+				}
+				
+				catch(NumberFormatException excep) {
+					JOptionPane.showMessageDialog(Homework_2.this, "PLease Enter the Right Info", "Error", JOptionPane.ERROR_MESSAGE);
+					System.exit(0);
+				}
+				
+				if(addNums.isSelected()) {
+					totalCalc = addNumbers(number1, number2, howManyTimes.getValue());
+				}
+				
+				else if(subtractNums.isSelected()) {
+					totalCalc = subtractNumbers(number1, number2, howManyTimes.getValue());
+				}
+				
+				else if(multNums.isSelected()) {
+					totalCalc = multNumbers(number1, number2, howManyTimes.getValue());
+				}
+				
+				else {
+					totalCalc = divideNumbers(number1, number2, howManyTimes.getValue());
+				}
+				
+				if(dollarSign.isSelected()) {
+					NumberFormat numFormat = NumberFormat.getCurrencyInstance();
+					JOptionPane.showMessageDialog(Homework_2.this, numFormat.format(totalCalc), "Solution", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+				else if (commaSeparator.isSelected()) {
+					NumberFormat numFormat = NumberFormat.getNumberInstance();
+					JOptionPane.showMessageDialog(Homework_2.this, numFormat.format(totalCalc), "Solution", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+				else {
+					JOptionPane.showMessageDialog(Homework_2.this, totalCalc, "Solution", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		}
+	}
+	
+	
+private class ListenForSlider implements ChangeListener {
+
+	@Override
+	public void stateChanged(ChangeEvent e) {
+		if(e.getSource() == howManyTimes) {
+			label3.setText("Perform How Many Times: " + howManyTimes.getValue());
+		}
+		
+		
+	}
+	
+}
+
+public static double addNumbers(double number1, double number2, int howMany) {
+	double total = 0;
+	
+	int i = 1;
+	
+	while(i <= howMany) {
+		total = total + (number1 + number2);
+		i++;
+	}
+	return total;
+}
+
+public static double subtractNumbers(double number1, double number2, int howMany) {
+	double total = 0;
+	
+	int i = 1;
+	
+	while(i <= howMany) {
+		total = total + (number1 - number2);
+		i++;
+	}
+	return total;
+}
+	
+public static double multNumbers(double number1, double number2, int howMany) {
+	double total = 0;
+	
+	int i = 1;
+	
+	while(i <= howMany) {
+		total = total + (number1 * number2);
+		i++;
+	}
+	return total;
+}
+
+public static double divideNumbers(double number1, double number2, int howMany) {
+	double total = 0;
+	
+	int i = 1;
+	
+	while(i <= howMany) {
+		total = total + (number1 / number2);
+		i++;
+	}
+	return total;
+}
+	
+	
+
 }
