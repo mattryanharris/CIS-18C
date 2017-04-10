@@ -15,4 +15,9 @@ public class TTTButton extends JButton {
 	public int getY() {
 		return y;
 	}
+
+	public Object getConstraints() {
+		
+		return (x + y);
+	}
 }
