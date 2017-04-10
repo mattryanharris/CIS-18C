@@ -10,8 +10,7 @@ public class Main {
 		frame.add(board);
 		frame.pack();
 		
-		
-		frame.setSize(500,500);
+		frame.setSize(300,400);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

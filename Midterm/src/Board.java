@@ -1,32 +1,19 @@
 import java.awt.*;
-import javax.swing.*;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
+import javax.swing.JButton;
 
-public class Board extends JPanel {
-	
-	GridBagConstraints gbc;
-	
-	public Board() {
-		
-		int ref = 1;
-		
-		gbc = new GridBagConstraints();
-		gbc.ipadx = gbc.ipady = 30;
-		gbc.fill = GridBagConstraints.BOTH;
-		
-		this.setLayout(new GridBagLayout());
-				
-		for(int i = 0; i < 9; i++) {	
-
-			int x = i % 3;
-			int y = i / 3;
+public class Board extends JPanel
+{
+	public Board()
+	{
+		GridLayout layout = new GridLayout(3,3,8,8);
+		for(int i = 1; i < 10; i++)
+		{
+			JButton button = ButtonGenerator.createButton(i);
+			this.add(button);
 			
-			JButton button = ButtonGenerator.createButton(x, y, ref);
-			
-			gbc.gridx = x;
-			gbc.gridy = y;
-			
-			ref++;
-			this.add(button, gbc);	
 		}
+		this.setLayout(layout);
 	}
 }

@@ -1,23 +1,18 @@
 import javax.swing.*;
 public class TTTButton extends JButton {
-	private int x, y;
+	//private int x, y;
 	
-	TTTButton(int x, int y, int ref) {
-		this.x = x;
-		this.y = y;
-		this.setText(Integer.toString(ref));
-	}
-	
-	public int getX() {
-		return x;
+	TTTButton(int x) {
+		//this.x = x;
+		//this.y = y;
+		this.setText(Integer.toString(x));
 	}
 	
-	public int getY() {
-		return y;
-	}
-
-	public Object getConstraints() {
-		
-		return (x + y);
-	}
+	//public int getX() {
+	//	return x;
+	//}
+	
+	//public int getY() {
+	//	return y;
+	//}
 }
